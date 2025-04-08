@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for a Grant - Grant Dove</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
+        header { background: #1a3c34; color: white; padding: 40px 20px; text-align: center; }
+        header h1 { font-size: 40px; }
+        nav { background: #2e5e54; padding: 15px; position: sticky; top: 0; }
+        nav a { color: white; margin: 0 20px; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #f4d03f; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .section { margin: 40px 0; padding: 30px; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { color: #1a3c34; font-size: 28px; margin-bottom: 20px; }
+        p { font-size: 18px; margin-bottom: 15px; }
+        .apply-form input, .apply-form textarea, .apply-form select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        .apply-form button { background: #1a3c34; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .apply-form button:hover { background: #2e5e54; }
+        footer { background: #1a3c34; color: white; padding: 20px; text-align: center; }
+        footer a { color: #f4d03f; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Apply for a Grant</h1>
+    </header>
+    <nav>
+        <a href="index.html#about">About</a>
+        <a href="index.html#grants">Grants</a>
+        <a href="index.html#nigeria">Nigeria</a>
+        <a href="index.html#team">Team</a>
+        <a href="index.html#partners">Partners</a>
+        <a href="index.html#stats">Impact</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="apply.html">Apply</a>
+    </nav>
+
+    <div class="container">
+        <div class="section">
+            <h2>Grant Application</h2>
+            <p>Ready to bring your idea to life? Apply for a Grant Dove grant below. We review applications quarterly, with the next deadline on June 30, 2025. Priority given to Nigeria-based projects starting July 2025.</p>
+            <form class="apply-form" id="applyForm">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <select name="grant" required>
+                    <option value="" disabled selected>Select Grant Program</option>
+                    <option value="innovate">Innovate Fund</option>
+                    <option value="community">Community Roots</option>
+                    <option value="culture">Culture Alive</option>
+                </select>
+                <input type="text" name="project" placeholder="Project Name" required>
+                <textarea name="description" placeholder="Project Description (200 words max)" rows="6" required></textarea>
+                <input type="number" name="amount" placeholder="Requested Amount (NZ$)" required>
+                <input type="text" name="location" placeholder="Project Location (e.g., Lagos, Nigeria)" required>
+                <input type="text" name="organization" placeholder="Organization Name (if applicable)">
+                <textarea name="impact" placeholder="Expected Impact (100 words max)" rows="4" required></textarea>
+                <button type="submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Grant Dove. All rights reserved.</p>
+        <p>Contact: <a href="mailto:contact@grantdove.org">contact@grantdove.org</a> | Wellington, NZ | +64 4 555 0123</p>
+        <p>Coming Soon: Lagos, Nigeria | +234 1 555 6789</p>
+    </footer>
+
+    <script>
+        document.getElementById('applyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your application! We’ll review it and respond within 4 weeks.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
