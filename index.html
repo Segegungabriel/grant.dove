@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grant Dove - Empowering Futures</title>
-    <base href="https://grantdove.org/"> 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
@@ -26,17 +25,16 @@
         .team { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
         .team-member { max-width: 300px; text-align: center; }
         .team-member img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
-        .testimonial { background: #ecf0f1; padding: 20px; margin: 10px 0; border-left: 5px solid #1a3c34; }
-        .contact-form { max-width: 600px; margin: 20px auto; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
-        .contact-form button { background: #1a3c34; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        .contact-form button:hover { background: #2e5e54; }
         .partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .partner-card { text-align: center; }
         .partner-card img { width: 100px; height: 100px; object-fit: contain; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; }
         .stat-card { padding: 20px; background: #ecf0f1; border-radius: 5px; }
         .stat-card h3 { font-size: 36px; color: #e74c3c; }
+        .contact-form { max-width: 600px; margin: 20px auto; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        .contact-form button { background: #1a3c34; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .contact-form button:hover { background: #2e5e54; }
         footer { background: #1a3c34; color: white; padding: 20px; text-align: center; margin-top: 40px; }
         footer a { color: #f4d03f; }
     </style>
@@ -54,7 +52,7 @@
         <a href="#partners">Partners</a>
         <a href="#stats">Impact</a>
         <a href="#contact">Contact</a>
-        <a href="/apply">Apply</a>
+        <a href="/grant.dove/apply.html">Apply</a>
     </nav>
 
     <div class="container">
@@ -86,7 +84,7 @@
                     <p><strong>Eligibility:</strong> Artists or cultural collectives.</p>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 20px;"><a href="/apply">Apply Now</a></p>
+            <p style="text-align: center; margin-top: 20px;"><a href="/grant.dove/apply.html">Apply Now</a></p>
         </div>
 
         <div class="section nigeria" id="nigeria">
@@ -191,7 +189,12 @@
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                const target = this.getAttribute('href');
+                if (target.startsWith('#')) {
+                    document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    window.location.href = target;
+                }
             });
         });
 
