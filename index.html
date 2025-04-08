@@ -7,23 +7,29 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
-        header { background: #1a3c34; color: white; padding: 40px 20px; text-align: center; }
-        header h1 { font-size: 48px; margin-bottom: 10px; }
-        nav { background: #2e5e54; padding: 15px; }
+        header { background: #1a3c34; color: white; padding: 60px 20px; text-align: center; }
+        header h1 { font-size: 52px; margin-bottom: 15px; }
+        nav { background: #2e5e54; padding: 15px; position: sticky; top: 0; z-index: 100; }
         nav a { color: white; margin: 0 20px; text-decoration: none; font-weight: bold; }
         nav a:hover { color: #f4d03f; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .section { margin: 40px 0; padding: 30px; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .section { margin: 40px 0; padding: 30px; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); opacity: 0; transform: translateY(20px); transition: opacity 0.5s, transform 0.5s; }
+        .section.visible { opacity: 1; transform: translateY(0); }
         h2 { color: #1a3c34; font-size: 32px; margin-bottom: 20px; }
         p { font-size: 18px; margin-bottom: 15px; }
         .grants-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .grant-card { padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
         .grant-card h3 { color: #e74c3c; font-size: 24px; }
-        .nigeria { background: #f4d03f; padding: 40px; }
+        .nigeria { background: #f4d03f; padding: 40px; position: relative; }
+        .nigeria img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 10px; margin: 20px 0; }
         .team { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
         .team-member { max-width: 300px; text-align: center; }
         .team-member img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
         .testimonial { background: #ecf0f1; padding: 20px; margin: 10px 0; border-left: 5px solid #1a3c34; }
+        .contact-form { max-width: 600px; margin: 20px auto; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        .contact-form button { background: #1a3c34; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .contact-form button:hover { background: #2e5e54; }
         footer { background: #1a3c34; color: white; padding: 20px; text-align: center; margin-top: 40px; }
         footer a { color: #f4d03f; }
     </style>
@@ -31,21 +37,22 @@
 <body>
     <header>
         <h1>Grant Dove</h1>
-        <p>Empowering Futures Through Strategic Funding</p>
+        <p>Transforming Lives Through Strategic Grants</p>
     </header>
     <nav>
         <a href="#about">About</a>
         <a href="#grants">Grants</a>
-        <a href="#nigeria">Nigeria Expansion</a>
+        <a href="#nigeria">Nigeria</a>
         <a href="#team">Team</a>
-        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+        <a href="apply.html">Apply</a>
     </nav>
 
     <div class="container">
         <div class="section" id="about">
             <h2>About Grant Dove</h2>
-            <p>Established in 2018 in Wellington, New Zealand, Grant Dove is a pioneering grant-making organization committed to fostering innovation and community resilience. With a mission to bridge opportunity gaps, we’ve disbursed over NZ$250,000 to 75+ projects across 12 countries, supporting everything from renewable energy startups to cultural preservation efforts.</p>
-            <p>Our approach combines rigorous evaluation with a human touch, ensuring every dollar creates measurable impact. Recognized by the NZ Philanthropy Council in 2023, we’re now taking our vision global — starting with Nigeria.</p>
+            <p>Since our founding in Wellington, New Zealand, in 2018, Grant Dove has been a beacon of hope for innovators and communities worldwide. We’ve awarded NZ$300,000 across 85 projects in 15 countries, from solar farms in Fiji to literacy programs in India. Our mission is simple: fund bold ideas that create lasting change.</p>
+            <p>In 2024, we were honored with the NZ Social Impact Award for our transparent, community-driven approach. Now, we’re setting our sights on Nigeria, where we see unparalleled potential to drive progress.</p>
         </div>
 
         <div class="section" id="grants">
@@ -53,78 +60,106 @@
             <div class="grants-grid">
                 <div class="grant-card">
                     <h3>Innovate Fund</h3>
-                    <p><strong>Amount:</strong> NZ$5,000–$15,000</p>
-                    <p><strong>Focus:</strong> Tech startups and sustainable solutions.</p>
-                    <p><strong>Eligibility:</strong> Individuals or teams with a prototype.</p>
+                    <p><strong>Amount:</strong> NZ$5,000–$20,000</p>
+                    <p><strong>Focus:</strong> Tech and green energy solutions.</p>
+                    <p><strong>Eligibility:</strong> Startups with a working prototype.</p>
                 </div>
                 <div class="grant-card">
                     <h3>Community Roots</h3>
-                    <p><strong>Amount:</strong> NZ$2,000–$10,000</p>
-                    <p><strong>Focus:</strong> Local initiatives in education and health.</p>
-                    <p><strong>Eligibility:</strong> Registered NGOs or community groups.</p>
+                    <p><strong>Amount:</strong> NZ$3,000–$12,000</p>
+                    <p><strong>Focus:</strong> Education, health, and youth empowerment.</p>
+                    <p><strong>Eligibility:</strong> NGOs or community groups.</p>
                 </div>
                 <div class="grant-card">
                     <h3>Culture Alive</h3>
-                    <p><strong>Amount:</strong> NZ$3,000–$8,000</p>
-                    <p><strong>Focus:</strong> Arts, heritage, and cultural projects.</p>
-                    <p><strong>Eligibility:</strong> Artists or cultural organizations.</p>
+                    <p><strong>Amount:</strong> NZ$2,000–$10,000</p>
+                    <p><strong>Focus:</strong> Arts, music, and heritage preservation.</p>
+                    <p><strong>Eligibility:</strong> Artists or cultural collectives.</p>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 20px;"><a href="#">Apply Now</a></p>
+            <p style="text-align: center; margin-top: 20px;"><a href="apply.html">Apply Now</a></p>
         </div>
 
         <div class="section nigeria" id="nigeria">
-            <h2>On Its Way to Nigeria</h2>
-            <p>In Q3 2025, Grant Dove is launching its boldest chapter yet: bringing our grant-making expertise to Nigeria. Why Nigeria? With its vibrant population of over 200 million, a thriving entrepreneurial spirit, and untapped potential, it’s the perfect place to amplify our impact.</p>
-            <p>Our vision is to fund 50 projects in our first year, starting in Lagos and Abuja. We’re targeting:</p>
+            <h2>Launching in Nigeria</h2>
+            <p>In July 2025, Grant Dove will land in Nigeria, kicking off a transformative journey in Africa’s most dynamic nation. Nigeria’s 200 million-strong population, thriving tech hubs, and rich cultural tapestry make it the ideal launchpad for our global expansion.</p>
+            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Nigerian community">
+            <p>We’re committing NZ$150,000 to fund 60 projects in our first year, starting in Lagos, Abuja, and Port Harcourt. Our focus areas include:</p>
             <ul style="text-align: left; margin: 20px auto; max-width: 600px;">
-                <li>Renewable energy solutions for rural communities.</li>
-                <li>Youth-led tech innovations in fintech and agritech.</li>
-                <li>Cultural festivals celebrating Nigeria’s rich heritage.</li>
+                <li>Solar-powered microgrids for off-grid villages.</li>
+                <li>Fintech startups tackling financial inclusion.</li>
+                <li>Cultural initiatives like Nollywood workshops and Yoruba music festivals.</li>
             </ul>
-            <p>We’ve partnered with local organizations like the Lagos Impact Hub and are setting up a field office in Ikeja by July 2025. Our goal? Invest NZ$100,000 in Nigeria’s future by 2026, creating a ripple effect of opportunity across West Africa.</p>
+            <p>We’re collaborating with Lagos-based Venture Garden Group and plan to open a permanent office in Victoria Island by September 2025. Our vision is to empower Nigeria’s next generation of leaders, creating a model for West Africa and beyond.</p>
         </div>
 
         <div class="section" id="team">
             <h2>Our Team</h2>
             <div class="team">
                 <div class="team-member">
-                    <img src="https://via.placeholder.com/150" alt="Aroha Patel">
+                    <img src="https://images.unsplash.com/photo-1519085360753-afccb5ee5962?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Aroha Patel">
                     <h3>Aroha Patel</h3>
-                    <p>Founder & Director</p>
-                    <p>15 years in philanthropy, passionate about global equity.</p>
+                    <p>Founder & CEO</p>
+                    <p>With 18 years in philanthropy, Aroha drives our global vision from Wellington.</p>
                 </div>
                 <div class="team-member">
-                    <img src="https://via.placeholder.com/150" alt="Temi Okoro">
+                    <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Temi Okoro">
                     <h3>Temi Okoro</h3>
-                    <p>Nigeria Program Lead</p>
-                    <p>Expert in West African development, based in Lagos.</p>
+                    <p>Nigeria Director</p>
+                    <p>Based in Lagos, Temi brings 10 years of experience in African development.</p>
                 </div>
                 <div class="team-member">
-                    <img src="https://via.placeholder.com/150" alt="James Kere">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="James Kere">
                     <h3>James Kere</h3>
                     <p>Grants Manager</p>
-                    <p>Oversees funding strategy from Wellington HQ.</p>
+                    <p>James ensures every grant delivers impact, from NZ to Nigeria.</p>
                 </div>
             </div>
         </div>
 
-        <div class="section" id="testimonials">
-            <h2>What People Say</h2>
-            <div class="testimonial">
-                <p>“Grant Dove funded our solar water pump project in 2022. It’s now serving 300 families!”</p>
-                <p><strong>- Maria Tane, Rural Innovator, NZ</strong></p>
-            </div>
-            <div class="testimonial">
-                <p>“Their support helped us launch a film festival that drew 5,000 attendees.”</p>
-                <p><strong>- Kofi Adebayo, Artist, Nigeria (Pilot Grant)</strong></p>
-            </div>
+        <div class="section" id="contact">
+            <h2>Contact Us</h2>
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Grant Dove. All rights reserved.</p>
+        <p>© 2025 Grant Dove. All rights reserved.</p>
         <p>Contact: <a href="mailto:contact@grantdove.org">contact@grantdove.org</a> | Wellington, NZ | +64 4 555 0123</p>
+        <p>Coming Soon: Lagos, Nigeria | +234 1 555 6789</p>
     </footer>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Fade-In Animation
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => observer.observe(section));
+
+        // Contact Form (Placeholder)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We’ll get back to you soon.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
