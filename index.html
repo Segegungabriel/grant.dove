@@ -30,6 +30,12 @@
         .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
         .contact-form button { background: #1a3c34; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
         .contact-form button:hover { background: #2e5e54; }
+        .partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .partner-card { text-align: center; }
+        .partner-card img { width: 100px; height: 100px; object-fit: contain; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; }
+        .stat-card { padding: 20px; background: #ecf0f1; border-radius: 5px; }
+        .stat-card h3 { font-size: 36px; color: #e74c3c; }
         footer { background: #1a3c34; color: white; padding: 20px; text-align: center; margin-top: 40px; }
         footer a { color: #f4d03f; }
     </style>
@@ -44,6 +50,8 @@
         <a href="#grants">Grants</a>
         <a href="#nigeria">Nigeria</a>
         <a href="#team">Team</a>
+        <a href="#partners">Partners</a>
+        <a href="#stats">Impact</a>
         <a href="#contact">Contact</a>
         <a href="apply.html">Apply</a>
     </nav>
@@ -117,6 +125,49 @@
             </div>
         </div>
 
+        <div class="section" id="partners">
+            <h2>Our Partners</h2>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Venture Garden Group">
+                    <h3>Venture Garden Group</h3>
+                    <p>Lagos-based tech firm supporting our Nigeria launch.</p>
+                </div>
+                <div class="partner-card">
+                    <img src="https://images.unsplash.com/photo-1517248135467-2c7ed3ab7229?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="NZ Philanthropy Council">
+                    <h3>NZ Philanthropy Council</h3>
+                    <p>Recognized us with the 2024 Social Impact Award.</p>
+                </div>
+                <div class="partner-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Lagos Impact Hub">
+                    <h3>Lagos Impact Hub</h3>
+                    <p>Co-working space hosting our Nigeria workshops.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="stats">
+            <h2>Impact Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>NZ$300K</h3>
+                    <p>Funds Awarded</p>
+                </div>
+                <div class="stat-card">
+                    <h3>85</h3>
+                    <p>Projects Funded</p>
+                </div>
+                <div class="stat-card">
+                    <h3>15</h3>
+                    <p>Countries Reached</p>
+                </div>
+                <div class="stat-card">
+                    <h3>2025</h3>
+                    <p>Nigeria Launch</p>
+                </div>
+            </div>
+        </div>
+
         <div class="section" id="contact">
             <h2>Contact Us</h2>
             <form class="contact-form" id="contactForm">
@@ -154,7 +205,7 @@
         }, { threshold: 0.1 });
         sections.forEach(section => observer.observe(section));
 
-        // Contact Form (Placeholder)
+        // Contact Form
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! We’ll get back to you soon.');
